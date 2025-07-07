@@ -14,20 +14,20 @@ def Config():
 
 
 
-@app.route('/Kevin Keegan')
-def Kevin():
+@app.route('/Kevin_Keegan')
+def Kevin_Keegan():
     return render_template('Kevin.html')
 
 
 
 
 
-@app.route('/David golpe')
-def David():
+@app.route('/David_Golpe')
+def David_Golpe():
     return render_template('David.html')
 
-@app.route('/Elias Gorondon')
-def Elias():
+@app.route('/Elias_Gorondon')
+def Elias_Gorondon():
     return render_template('Elias.html')
 
 
