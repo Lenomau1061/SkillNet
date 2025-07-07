@@ -1,3 +1,3 @@
-# JardinDigital
+# SkillNet
 
-# https://jardindigital-m4m5.onrender.com/
+# https://skillnet-9dhb.onrender.com/
