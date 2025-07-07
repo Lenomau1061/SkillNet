@@ -13,15 +13,13 @@
 </head>
 
     
-  {% if usuario %}<!--Si el usuario ya inicio-->
-    <h1>Ya iniciaste sesion...</h1>
+
+
         
         <a onclick="history.back()" class="btn btn-primary">Volver</a>
         <!--location.reload();-->
 
-  
 
-  {% else %}<!--Si el usuario no inicio o no tiene cuenta-->
 
      <h1>Inisiar sesion</h1>
              <form method="POST" action="/login">
@@ -43,7 +41,7 @@
     <a onclick="history.back()" class="btn btn-primary">Volver</a>
 
 
-  {% endif %}
+
 
     </div>
 
