@@ -5,3 +5,8 @@ body{
     padding: 50px 2px 2px;
     background-color: #0d2f73;
 }
+.titulo{
+	font-family: "Lucida Handwriting", Cursive;
+	font-size: 60px;
+	padding-top: 25%;
+}
