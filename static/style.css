@@ -23,6 +23,13 @@ h1 .titulokevin{
 	color: #202021;
 	font-weight: 900;
 }
+h1 .titulokevin2{
+	font-family: "Lucida Handwriting", Cursive;
+	font-size: 60px;
+	padding-top: 10%;
+	color: white;
+	font-weight: 900;
+}
 .barradavid{
     padding: 5px 2px 2px;
     background-color: #163853;
