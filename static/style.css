@@ -16,14 +16,14 @@ body{
     padding: 5px 2px 2px;
     background-color: #22242E;
 }
-h1 .titulokevin{
+.titulokevin{
 	font-family: "Lucida Handwriting", Cursive;
 	font-size: 60px;
 	padding-top: 10%;
 	color: #202021;
 	font-weight: 900;
 }
-h1 .titulokevin2{
+.titulokevin2{
 	font-family: "Lucida Handwriting", Cursive;
 	font-size: 60px;
 	padding-top: 10%;
