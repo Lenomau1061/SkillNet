@@ -5,6 +5,10 @@ body{
     padding: 5px 2px 2px;
     background-color: #163853;
 }
+.barrita{
+    padding: 2px 2px 2px;
+    background-color: #0252ca;
+}
 .tituloelias{
 	font-family: "Lucida Handwriting", Cursive;
 	font-size: 60px;
