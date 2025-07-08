@@ -1,14 +1,14 @@
 body{
 	background-color: #d7f4ef;
 }
-.barratitulo{
-    padding: 10px 2px 2px;
-    background-color: #0d2f73;
+.barraelias{
+    padding: 5px 2px 2px;
+    background-color: #163853;
 }
 .titulo{
 	font-family: "Lucida Handwriting", Cursive;
 	font-size: 60px;
 	padding-top: 10%;
-	color: #e6ac00;
+	color: #dab25b;
 	font-weight: 900;
 }
