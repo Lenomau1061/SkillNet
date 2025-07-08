@@ -14,13 +14,13 @@ body{
 }
 .barrakevin{
     padding: 5px 2px 2px;
-    background-color: #163853;
+    background-color: #22242E;
 }
-.titulokevin{
+h1 .titulokevin{
 	font-family: "Lucida Handwriting", Cursive;
 	font-size: 60px;
 	padding-top: 10%;
-	color: #dab25b;
+	color: #202021;
 	font-weight: 900;
 }
 .barradavid{
