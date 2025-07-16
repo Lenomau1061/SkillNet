@@ -57,3 +57,11 @@ p.index{
 	color: #dab25b;
 	font-weight: 900;
 }
+.h2{
+	font-family: "Lucida Handwriting", Cursive;
+	font-size: 30px;
+	padding-top: 10%;
+	color: #dab25b;
+	font-weight: 900;
+	text-shadow: 1px 1px 5px #000000;
+}
