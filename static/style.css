@@ -9,7 +9,7 @@ p{
 	padding: 2px 2px 2px;
 	background-color: #afb8d9;
 	color: #ffbb00;
-	shadow
+	text-shadow: 1px 1px 5px #fff1cc;
 }
 .barrita{
     padding: 2px 2px 2px;
@@ -20,7 +20,7 @@ p{
 	font-size: 60px;
 	padding-top: 10%;
 	color: #dab25b;
-	text-shadow: 1px 1px 5px #ffbb00;
+	font-weight: 900;
 }
 .barrakevin{
     padding: 5px 2px 2px;
