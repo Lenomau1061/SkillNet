@@ -4,7 +4,8 @@
 
 👥 Integrantes del equipo 4
 
-### Kevin KeeganEncargado de crear el servidor, desarrollar el backend, construir la estructura base de la página y llenarla con el contenido informativo.
+### Kevin Keegan
+Encargado de crear el servidor, desarrollar el backend, construir la estructura base de la página y llenarla con el contenido informativo.
 
 David Goldpe   
 Desarrollador full stack: participó tanto en el frontend como en el backend, colaborando en la integración de estilos, estructura y lógica funcional.
