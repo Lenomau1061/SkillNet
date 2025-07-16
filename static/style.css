@@ -5,10 +5,11 @@ body{
     padding: 5px 2px 2px;
     background-color: #163853;
 }
-.nos{
+p{
 	padding: 2px 2px 2px;
-	background-color: #0252ca;
-	color: ghostwhite;
+	background-color: #afb8d9;
+	color: #ffbb00;
+	shadow
 }
 .barrita{
     padding: 2px 2px 2px;
@@ -19,7 +20,7 @@ body{
 	font-size: 60px;
 	padding-top: 10%;
 	color: #dab25b;
-	font-weight: 900;
+	text-shadow: 1px 1px 5px #ffbb00;
 }
 .barrakevin{
     padding: 5px 2px 2px;
