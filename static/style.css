@@ -10,6 +10,13 @@ p.index{
 	color: #ffbb00;
 	text-shadow: 1px 1px 5px #000000;
 }
+.col-8{
+	background-color: #7d859b;
+}
+
+.col-2{
+	background-color: #b2bcd7;
+}
 .barrita{
     padding: 2px 2px 2px;
     background-color: #0252ca;
