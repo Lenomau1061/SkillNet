@@ -3,6 +3,7 @@
 🔗 Sitio Web: https://skillnet-9dhb.onrender.com
 
 👥 Integrantes del equipo 4
+
 Kevin Keegan
 Encargado de crear el servidor, desarrollar el backend, construir la estructura base de la página y llenarla con el contenido informativo.
 
