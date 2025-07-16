@@ -7,9 +7,8 @@ body{
 }
 p{
 	padding: 2px 2px 2px;
-	background-color: #afb8d9;
 	color: #ffbb00;
-	text-shadow: 1px 1px 5px #fff1cc;
+	text-shadow: 1px 1px 5px #000000;
 }
 .barrita{
     padding: 2px 2px 2px;
