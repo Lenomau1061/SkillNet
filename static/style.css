@@ -1,9 +1,14 @@
 body{
-	background-color: #0252ca;
+	background-color: ghostwhite;
 }
 .barraelias{
     padding: 5px 2px 2px;
     background-color: #163853;
+}
+.nos{
+	padding: 2px 2px 2px;
+	background-color: #0252ca;
+	color: ghostwhite;
 }
 .barrita{
     padding: 2px 2px 2px;
