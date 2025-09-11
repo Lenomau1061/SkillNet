@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vivero Mía Plantas</title>
+  <title>NexoBase</title>
   <style>
     :root {
       --verde-oscuro: #3a5a40;
@@ -203,12 +203,6 @@
       z-index: 2;
     }
 
-    @keyframes float {
-      0% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(25px) rotate(10deg); }
-      100% { transform: translateY(0) rotate(0deg); }
-    }
-
     /* ------------------ RESPONSIVE ------------------ */
     @media (max-width: 768px) {
       nav {
@@ -263,19 +257,18 @@
 <body>
 
   <!-- Título arriba -->
-  <header class="header-title">Vivero Mía</header>
+  <header class="header-title">NexoBase</header>
 
   <nav>
     <a href="{{ url_for('index') }}" class="active">Inicio</a>
-    <a href="{{ url_for('productos') }}">Productos</a>
-    <a href="{{ url_for('carrito') }}">Carrito</a>
-    <a href="{{ url_for('comentarios') }}">Comentarios</a>
-    <a href="{{ url_for('login') }}">Iniciar sesión</a>
+    <a href="{{ url_for('Kevin_Keegan') }}">Kevin</a>
+    <a href="{{ url_for('David_Golpe') }}">David</a>
+    <a href="{{ url_for('Elias_Gorondon') }}">Elias</a>
+    <a href="{{ url_for('Config') }}">Config</a>
   </nav>
 
   <section class="hero">
-    <h1>Brota la Belleza Natural</h1>
-    <button onclick="window.location.href='{{ url_for('productos') }}'">Descubre nuestras plantas</button>
+    <h1>Tu Grupo de confiansa</h1>
   </section>
 
   <section class="about">
@@ -297,3 +290,4 @@
 
 </body>
 </html>
+
