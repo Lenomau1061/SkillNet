@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Empresa NexoBase</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg-grad-1: #141931;
+      --accent: #5867ff;
+      --accent-2: #7b6bff;
+      --gold: #f2b034;
+      --card-bg: #eef1f6;
+      --text-dark: #0f1530;
+      --bg: #fff;
+    }
+    /* Tema oscuro */
+    body[data-theme="dark"] {
+      --bg-grad-1: #0d111d;
+      --card-bg: #1c1f2b;
+      --text-dark: #e0e0e0;
+      --bg: #0a0c14;
+    }
+
+    *{box-sizing:border-box; margin:0; padding:0}
+    body{font-family: Montserrat, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; 
+         color:var(--text-dark); line-height:1.5; background:var(--bg);}
+    a{text-decoration:none; color:inherit}
+
+    /* NAVBAR */
+    header{
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      background:var(--bg); box-shadow:0 2px 6px rgba(0,0,0,0.08);
+      display:flex; justify-content:space-between; align-items:center; padding:12px 20px;
+    }
+    nav{max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex:1}
+    .nav-logo{font-weight:800; font-size:18px; color:var(--accent)}
+    .nav-links{display:flex; gap:20px}
+    .nav-links a{font-weight:600; color:var(--text-dark);}
+    .menu-toggle{display:none; cursor:pointer; font-size:22px;}
+
+    @media(max-width:768px){
+      .nav-links{display:none; flex-direction:column; gap:12px; background:var(--bg); position:absolute; top:56px; right:0; padding:16px 24px; box-shadow:0 2px 6px rgba(0,0,0,0.15)}
+      .nav-links.active{display:flex}
+      .menu-toggle{display:block}
+    }
+
+    /* CONFIG PANEL */
+    .config-btn{cursor:pointer; font-size:20px; margin-left:16px;}
+    .config-panel{
+      position:absolute; top:56px; right:20px;
+      background:var(--bg); border-radius:8px; padding:16px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.2); display:none; flex-direction:column; gap:12px;
+      min-width:180px;
+    }
+    .config-panel.active{display:flex}
+    .config-option{display:flex; align-items:center; justify-content:space-between}
+
+    /* HERO */
+    .hero{
+      margin-top:56px; min-height:70vh; display:flex; align-items:center; justify-content:center; 
+      text-align:center; padding:60px 24px;
+      background: linear-gradient(135deg, var(--bg-grad-1) 0%, #2e3a8f 60%, #5b63d6 100%);
+      color: #fff; position:relative; overflow:hidden;
+    }
+    .hero h1{font-size:64px; margin:0; font-weight:800; line-height:0.95; position:relative; z-index:2}
+    .cta{margin-top:28px; display:inline-block; padding:11px 28px; border-radius:28px; background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:#fff; text-decoration:none; font-weight:700; position:relative; z-index:2}
+
+    @media(max-width:768px){
+      .hero h1{font-size:36px}
+    }
+
+    /* CUADRADOS AZULES */
+    .shape{
+      position:absolute;
+      width:160px; height:160px;
+      background:rgba(91,99,214,0.25);
+      border-radius:20px;
+      transform:rotate(25deg);
+      z-index:1;
+    }
+    .shape.one{ top:10%; left:-60px; }
+    .shape.two{ bottom:15%; right:-70px; }
+    .shape.three{ top:40%; left:20px; width:100px; height:100px; background:rgba(88,103,255,0.2);}
+    .shape.four{ bottom:30%; right:40px; width:120px; height:120px; background:rgba(123,107,255,0.2); }
+
+    /* TEAM */
+    .team{background:var(--card-bg); padding:64px 32px;}
+    .container{max-width:1200px; margin:0 auto}
+    .team h2{font-size:40px;margin:0 0 6px 0; font-weight:800}
+    .team .sub{color:#ffb74d; font-weight:800; font-size:34px}
+    .cards{display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:36px; margin-top:36px; align-items:center}
+    .card{background:transparent; display:flex; gap:18px; align-items:center; justify-content:center;}
+    .avatar{width:120px; height:120px; border-radius:12px; padding:6px; background:linear-gradient(180deg,var(--accent),var(--accent-2));}
+    .avatar img{width:100%; height:100%; object-fit:cover; border-radius:8px; display:block}
+    .info{flex:1}
+    .name{font-size:24px; font-weight:800; margin:0}
+    .role{display:inline-block; margin-top:6px; padding:6px 12px; border-radius:18px; background:var(--gold); font-weight:700; font-size:12px}
+
+    /* PROJECTS */
+    .projects{padding:64px 32px;}
+    .projects h2{font-size:40px; font-weight:800; margin-bottom:12px}
+    .project-grid{display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:24px; margin-top:24px}
+    .project-card{background:var(--bg); border-radius:12px; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.08); transition:transform .2s ease}
+    .project-card:hover{transform:translateY(-4px)}
+    .project-card h3{margin:0 0 10px; font-size:20px; font-weight:700; color:var(--accent)}
+    .project-card p{font-size:14px; color:var(--text-dark);}
+
+    footer{background:#111; color:#fff; text-align:center; padding:20px; margin-top:40px;}
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="nav-logo">NEXOBASE</div>
+      <div class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</div>
+      <div class="nav-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#equipo">Equipo</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </nav>
+    <div class="config">
+      <div class="config-btn" onclick="toggleConfig()">⚙️</div>
+      <div class="config-panel" id="configPanel">
+        <div class="config-option">
+          <span>Modo oscuro</span>
+          <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()" />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" id="inicio">
+    <!-- formas decorativas -->
+    <div class="shape one"></div>
+    <div class="shape two"></div>
+    <div class="shape three"></div>
+    <div class="shape four"></div>
+
+    <div>
+      <h1>NexoBase</h1>
+      <div><a class="cta" href="#equipo">INTEGRANTES DEL EQUIPO</a></div>
+    </div>
+  </section>
+
+  <section class="team" id="equipo">
+    <div class="container">
+      <h2>INTEGRANTES <span class="sub">DEL EQUIPO</span></h2>
+      <div class="cards">
+        <div class="card">
+          <div class="avatar"><img src="images/elias.jpg" alt="Elias Gorondon"></div>
+          <div class="info">
+            <div class="name">Elias Gorondon</div>
+            <div class="role">FRONTEND - DISEÑADOR WEB</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="avatar"><img src="images/kevin.jpg" alt="Kevin Keegan"></div>
+          <div class="info">
+            <div class="name">Kevin Keegan</div>
+            <div class="role">BACKEND - SERVIDOR</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="avatar"><img src="images/david.jpg" alt="David Golpe"></div>
+          <div class="info">
+            <div class="name">David Golpe</div>
+            <div class="role">ECONOMISTA Y DOCUMENTACION</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects" id="proyectos">
+    <div class="container">
+      <h2>Proyectos</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <h3>Jardín Digital</h3>
+          <p>Un espacio virtual interactivo para gestionar y aprender sobre plantas y jardines de manera digital.</p>
+        </div>
+        <div class="project-card">
+          <h3>Plataforma Educativa</h3>
+          <p>Desarrollo de herramientas para el aprendizaje en línea con foco en interactividad y usabilidad.</p>
+        </div>
+        <div class="project-card">
+          <h3>App de Gestión</h3>
+          <p>Aplicación móvil para administración de recursos y planificación de actividades.</p>
+        </div>
+      </div>
+
+    </div>
+
+    
+  </section>
+
+  <footer id="contacto">
+    <p>© 2025 Empresa Nexobase - Todos los derechos reservados</p>
+  </footer>
+
+  <script>
+    function toggleConfig(){
+      document.getElementById("configPanel").classList.toggle("active");
+    }
+    function toggleDarkMode(){
+      const isDark = document.getElementById("darkModeToggle").checked;
+      document.body.setAttribute("data-theme", isDark ? "dark" : "");
+    }
+  </script>
+</body>
+</html>
