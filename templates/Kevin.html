@@ -1,47 +1,307 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Kevin Keegan</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗄️</text></svg>">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kevin Keegan</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗄️</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-     
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <!-- Bootstrap 5 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap iconos -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    :root{
+      --bg-grad-1: #141931;
+      --accent: #5867ff;
+      --accent-2: #7b6bff;
+      --gold: #f2b034;
+      --card-bg: #eef1f6;
+      --text-dark: #0f1530;
+      --bg: #fff;
+    }
+    body[data-theme="dark"] {
+      --bg-grad-1: #0d111d;
+      --card-bg: #1c1f2b;
+      --text-dark: #e0e0e0;
+      --bg: #0a0c14;
+    }
+    *{box-sizing:border-box; margin:0; padding:0}
+    body{font-family: Montserrat, sans-serif; color:var(--text-dark); line-height:1.5; background:var(--bg);}
+    a{text-decoration:none; color:inherit}
+
+    /* NAVBAR */
+    header{
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      background:var(--bg); box-shadow:0 2px 6px rgba(0,0,0,0.08);
+      display:flex; justify-content:space-between; align-items:center; padding:12px 20px;
+    }
+    nav{display:flex; align-items:center; justify-content:space-between; flex:1}
+    .nav-logo{font-weight:800; font-size:18px; color:var(--accent)}
+    .nav-links{display:flex; gap:20px}
+    .nav-links a{font-weight:600; color:var(--text-dark);}
+    .menu-toggle{display:none; cursor:pointer; font-size:22px;}
+    @media(max-width:768px){
+      .nav-links{display:none; flex-direction:column; gap:12px; background:var(--bg); position:absolute; top:56px; right:0; padding:16px 24px; box-shadow:0 2px 6px rgba(0,0,0,0.15)}
+      .nav-links.active{display:flex}
+      .menu-toggle{display:block}
+    }
+
+    /* CONFIG PANEL */
+    .config-btn{cursor:pointer; font-size:20px; margin-left:16px;}
+    .config-panel{
+      position:absolute; top:56px; right:20px;
+      background:var(--bg); border-radius:8px; padding:16px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.2); display:none; flex-direction:column; gap:12px;
+      min-width:180px;
+    }
+    .config-panel.active{display:flex}
+    .config-option{display:flex; align-items:center; justify-content:space-between}
+
+    /* HERO */
+    .hero{
+      margin-top:56px; min-height:70vh; display:flex; align-items:center; justify-content:center; 
+      text-align:center; padding:60px 24px;
+      background: linear-gradient(135deg, var(--bg-grad-1) 0%, #2e3a8f 60%, #5b63d6 100%);
+      color: #fff; position:relative; overflow:hidden;
+    }
+    .hero h1{font-size:52px; margin:0; font-weight:800; z-index:2; position:relative}
+    .hero p{margin-top:12px; font-size:18px; opacity:0.9}
+    .cta{margin-top:28px; display:inline-block; padding:11px 28px; border-radius:28px; background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:#fff; text-decoration:none; font-weight:700; position:relative; z-index:2}
+    @media(max-width:768px){
+      .hero h1{font-size:34px}
+    }
+
+    /* ABOUT */
+    .about{padding:64px 32px; background:var(--card-bg);}
+    .about h2{font-size:40px; font-weight:800; margin-bottom:20px}
+    .about p{max-width:800px; margin:0 auto; font-size:16px; text-align:center}
+
+    /* CV */
+    .cv-section{padding:64px 32px;}
+    .cv-section h2{font-size:40px; font-weight:800; margin-bottom:20px}
+    .cv-actions{text-align:center; margin-top:20px;}
+    .cv-actions a{margin:10px; display:inline-block; padding:12px 24px; border-radius:24px; background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:#fff; font-weight:700;}
+
+    /*PROYECTOS PERSONALES */
+    .projects{padding:64px 32px;}
+    .projects h2{font-size:40px; font-weight:800; margin-bottom:12px}
+    .project-grid{display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:24px; margin-top:24px}
+    .project-card{background:var(--bg); border-radius:12px; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.08); transition:transform .2s ease}
+    .project-card:hover{transform:translateY(-4px)}
+    .project-card h3{margin:0 0 10px; font-size:20px; font-weight:700; color:var(--accent)}
+    .project-card p{font-size:14px; color:var(--text-dark);}
+
+    footer{background:#111; color:#fff; text-align:center; padding:20px; margin-top:40px;}
+  </style>
 </head>
 <body>
-   <div class="barrakevin">
-        <center>
-            <p class="titulokevin2">Kevin Santiago Keegan</p>        
-        </center>        
+
+  <header>
+    <nav>
+      <div class="nav-logo">KEVIN KEEGAN</div>
+      <div class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</div>
+      <div class="nav-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#about">Sobre mí</a>
+        <a href="#cv">Currículum</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </nav>
+    <div class="config">
+      <div class="config-btn" onclick="toggleConfig()">⚙️</div>
+      <div class="config-panel" id="configPanel">
+        <div class="config-option">
+          <span>Modo oscuro</span>
+          <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()" />
+        </div>
+      </div>
     </div>
-    <div class="container-fluid">
-		<div class="row">
-		    <div class="col-2">
-			
-		    </div><!-- Muestra compras -->
-		    <div class="col-8">
-		    	<center>
-		    		<h1 class="titulokevin">Pagina Principal o CV</h1>
-                    		<a onclick="history.back()" class="btn btn-primary">Volver</a>
-   				
-				<a href="{{ url_for('static', filename='Cvs/_KevinKeegan_CV_2025.png') }}" target="_blank" class="btn btn-primary">Ir al currículum</a>
-		    	</center>
-		    </div><!-- Muestra compras -->
-		    <div class="col-2">
-		    	
-		    </div><!-- Muestra compras -->
-		</div>
-	</div>  
+  </header>
+
+  <section class="hero" id="inicio">
+    <div>
+      <h1>Kevin Santiago Keegan</h1>
+      <p>Backend Developer · Servidores · Seguridad</p>
+      <div><a class="cta" href="#cv">Ver Currículum</a></div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <h2>Sobre mí</h2>
+    <p>
+      Soy desarrollador backend especializado en servidores y sistemas seguros. 
+      Me enfoco en optimizar procesos y garantizar el rendimiento de las aplicaciones.
+      Apasionado por la programación, la infraestructura y el aprendizaje constante.
+    </p>
+  </section>
+
+  <section class="cv-section" id="cv">
+    <h2>Currículum</h2>
+    <div class="cv-actions">
+      <a onclick="history.back()">Volver</a>
+      <a href="{{ url_for('static', filename='Cvs/_KevinKeegan_CV_2025.png') }}" target="_blank">Abrir CV</a>
+    </div>
+  </section>
+
+  <section class="projects" id="proyectos">
+    <h2>Proyectos Personales</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>Sistema de Gestión de Usuarios</h3>
+        <p>Aplicación web con autenticación segura y manejo de roles, optimizada para rendimiento en servidores ligeros.</p>
+      </div>
+      <div class="project-card">
+        <h3>API REST para Inventarios</h3>
+        <p>Desarrollo de una API escalable para gestión de inventarios y productos, con integración en aplicaciones móviles.</p>
+      </div>
+      <div class="project-card">
+        <h3>Monitor de Servidores</h3>
+        <p>Herramienta que registra actividad, consumo de recursos y errores en tiempo real para optimizar infraestructura.</p>
+      </div>
+    </div>
+    <h2>Videojuegos</h2>
+
+    <div class="project-card">
+        
+        <div class = "center"><h2>Sin Señal</h2>
+        <p><strong>Dobre el juego: </strong> Juego fotorealista desarrollado por Lenomau "Kevin Keegan"  como forma de desafio personal</p>
+        </br><h3><strong>Requisitos minimos: </strong> </h3></div> 
+      
+        
+
+      <style>
+        table {
+          width: 90%;
+          margin: 20px auto;
+          border-collapse: collapse;
+          font-family: Arial, sans-serif;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .center {
+        text-align: center;
+      }
+
+
+        thead {
+          background-color: #040052;
+          color: white;
+        }
+
+        th, td {
+          padding: 12px 15px;
+          text-align: center;
+          border-bottom: 1px solid #ddd;
+        }
+
+        tbody tr:nth-child(even) {
+          background-color: #f9f9f9;
+        }
+
+        tbody tr:hover {
+          background-color: #000c9233;
+        }
+
+        th {
+          border-radius: 8px 8px 0 0;
+        }
+      </style>
+
+      <table>
+        <thead>
+          <tr>
+            <th>OS</th>
+            <th>PROCESADOR</th>
+            <th>RAM</th>
+            <th>GRAFICA INTEGRADA</th>
+            <th>FORMATO</th>
+            <th>CALIDAD GRAFICA</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            
+            <td><strong>Windows 7</strong></td>
+            <td><strong>Intel® Pentium® 4415U @ 2.30GHz</strong></td>
+            <td><strong>2 GB</strong></td>
+            <td><strong>intel hd graphics 610, 128 MB de VRAM</strong></td>
+            <td><strong>32 / 64 BITS</strong></td>
+            <td><strong>MEDIA / BAJA</strong></td>
+            
+          </tr>
+        </tbody>
+      </table>
 
 
 
+      <div class = "center"><h3><strong>Requisitos Recomendados: </strong> </h3></div> 
+       <table>
+        <thead>
+          <tr>
+            <th>OS</th>
+            <th>PROCESADOR</th>
+            <th>RAM</th>
+            <th>GRAFICA Dedicada</th>
+            <th>FORMATO</th>
+            <th>CALIDAD GRAFICA</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            
+            <td><strong>Windows 7 o Superior</strong></td>
+            <td><strong>11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz</strong></td>
+            <td><strong>16 GB</strong></td>
+            <td><strong>RTX 2050 4GB VRAM</strong></td>
+            <td><strong>32 / 64 BITS</strong></td>
+            <td><strong>ULTRA</strong></td>
+
+            
+            
+            
+          </tr>
+        </tbody>
+        
+      </table>
 
 
-    
+  
+    </div>
+    <div class = "center"><a class="cta" href="https://lenomau.itch.io/">Descargar DEMO</a></div>
+  </section>
+      
+  <footer id="contacto">
+    <p>© 2025 Kevin Keegan - Todos los derechos reservados</p>
+  </footer>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.getElementById("darkModeToggle");
+
+    //Cargar preferencia guardada
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      document.body.setAttribute("data-theme", savedTheme);
+      toggle.checked = (savedTheme === "dark");
+    } else {
+      // Default: oscuro
+      document.body.setAttribute("data-theme", "dark");
+      toggle.checked = true;
+    }
+
+    //Al cambiar el switch
+    toggle.addEventListener("change", () => {
+      const theme = toggle.checked ? "dark" : "light";
+      document.body.setAttribute("data-theme", theme);
+      localStorage.setItem("theme", theme);
+    });
+  });
+
+  function toggleConfig(){
+    document.getElementById("configPanel").classList.toggle("active");
+  }
+</script>
 
 </body>
 </html>
